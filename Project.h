@@ -53,6 +53,9 @@ class Project
             int sundaysOnFirst(int endYear);
         void factorial_digit_sum();
             int sumDigits(string s);
+        void name_scores();
+            int name_sum(string s);
+            void insertionSort(string* array,int length);
     protected:
     private:
 };

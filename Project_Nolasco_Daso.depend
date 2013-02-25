@@ -53,12 +53,12 @@
 1361324425 source:c:\codeblocks\project_nolasco_daso - copy\project.cpp
 	"Project.h"
 
-1361188972 source:c:\laptoptousb\codeblocks\project_nolasco_daso\main.cpp
+1361782383 source:c:\laptoptousb\codeblocks\project_nolasco_daso\main.cpp
 	<iostream>
 	<cstdlib>
 	"Project.h"
 
-1361521826 c:\laptoptousb\codeblocks\project_nolasco_daso\project.h
+1361792491 c:\laptoptousb\codeblocks\project_nolasco_daso\project.h
 	<iostream>
 	<cstdlib>
 	<cmath>
@@ -69,6 +69,6 @@
 	<string.h>
 	<iomanip>
 
-1361521718 source:c:\laptoptousb\codeblocks\project_nolasco_daso\project.cpp
+1361795147 source:c:\laptoptousb\codeblocks\project_nolasco_daso\project.cpp
 	"Project.h"
 

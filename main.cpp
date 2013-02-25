@@ -10,9 +10,9 @@ const string problem[]={"Multiples of 3 and 5",
 ,"Special Pythagorean triplet","Summation of Primes","Largest Product in a Grid",
 "Highly divisible triangular number","Large sum","Longest Collatz sequence"
 ,"Diophantine reciprocals","Power digit sum","Number letter counts","Maximum path sum I"
-,"Counting Sundays","Factorial digit sum","Exit"};
+,"Counting Sundays","Factorial digit sum","Name Scores","Exit"};
 
-const int Num_Problems=20;
+const int Num_Problems=21;
 const int Exit=Num_Problems+1;
 
 int main()
@@ -88,6 +88,9 @@ int main()
                 break;
             case 20:
                 proj.factorial_digit_sum();
+                break;
+            case 21:
+                proj.name_scores();
                 break;
             case Exit:
                 done=true;
