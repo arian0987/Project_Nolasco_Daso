@@ -58,7 +58,7 @@
 	<cstdlib>
 	"Project.h"
 
-1361792491 c:\laptoptousb\codeblocks\project_nolasco_daso\project.h
+1362153098 c:\laptoptousb\codeblocks\project_nolasco_daso\project.h
 	<iostream>
 	<cstdlib>
 	<cmath>
@@ -68,7 +68,8 @@
 	<sstream>
 	<string.h>
 	<iomanip>
+	<algorithm>
 
-1361795147 source:c:\laptoptousb\codeblocks\project_nolasco_daso\project.cpp
+1362153156 source:c:\laptoptousb\codeblocks\project_nolasco_daso\project.cpp
 	"Project.h"
 

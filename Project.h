@@ -7,6 +7,7 @@
 #include <sstream>
 #include <string.h>
 #include <iomanip>
+#include <algorithm>
 #ifndef PROJECT_H
 #define PROJECT_H
 
@@ -21,8 +22,8 @@ class Project
         void even_fibonacce();
         void largest_prime_factor();
         void largest_palindrome_product();
-            void itoa(int n , char s[]);        //those indented are added functions
-            void reverse(char s[]);
+            void itoa(int n, char s[]);
+            void reverse(char s[]); // additional function for palindrome
         void smallest_multiple();
         void sum_square_difference();
         void _10001st_prime();
