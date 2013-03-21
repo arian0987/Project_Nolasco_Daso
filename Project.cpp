@@ -39,6 +39,7 @@ void Project::even_fibonacce(){
 
 }
 
+bool Prime_check(long num);
 void Project::largest_prime_factor(){
     long long largest_prime_factor=0;
     long long target=600851475143LL;
@@ -55,7 +56,8 @@ void Project::largest_prime_factor(){
     }
     cout << largest_prime_factor << endl;
 }
-
+void ITOA(int n, char s[]);
+void reverse(char s[]);
 void Project::largest_palindrome_product(){
     int a,b,palinProduct=0,a1,b1;
     long long x;
@@ -65,7 +67,7 @@ void Project::largest_palindrome_product(){
     for(a=100; a<1000; a++){
         for(b=100; b<1000; b++){
             x = a*b;
-            itoa(x,toChar);
+            ITOA(x,toChar);
             Str = toChar;
             reverse(toChar);
             revStr = toChar;
@@ -80,7 +82,7 @@ void Project::largest_palindrome_product(){
     cout<< palinProduct <<endl;
 }
 
-void Project::itoa(int n, char s[])
+void ITOA(int n, char s[])
 {
      int i, sign;
      if ((sign = n) < 0)
@@ -95,7 +97,7 @@ void Project::itoa(int n, char s[])
      reverse(s);
 }
 
- void Project::reverse(char s[]) // additional function for palindrome
+void reverse(char s[])
  {
      int i, j;
      char c;
@@ -188,7 +190,6 @@ void Project::largest_product_in_a_series(){
 
 }
 
-
 void Project::special_pytho_triplet(){
     int sum;
     int product_abc=0;
@@ -211,18 +212,7 @@ void Project::special_pytho_triplet(){
     cout << product_abc << endl;
 }
 
-void Project::summation_of_prime(){
-    long long temp2=5;
-
-    for(int a=5; a<2000000; a+=2){
-        if(Project::Prime_check(a)){
-            temp2+=a;
-        }
-    }
-    cout << temp2 << endl;
-}
-
-bool Project::Prime_check(long num){
+bool Prime_check(long num){
      bool Prime_check = true;
      for (int i=2; i<= round(sqrt(num)) && Prime_check; i++)
      {
@@ -231,6 +221,18 @@ bool Project::Prime_check(long num){
      return Prime_check;
 }
 
+void Project::summation_of_prime(){
+    long long temp2=5;
+
+    for(int a=5; a<2000000; a+=2){
+        if(Prime_check(a)){
+            temp2+=a;
+        }
+    }
+    cout << temp2 << endl;
+}
+
+/*11 to 20*/
 void Project::largest_product_in_grid(){
 
     int num_container[20][20] = {
@@ -337,16 +339,7 @@ vector<long int>final_results;
     cout << max_product << endl;
 }
 
-void Project::highly_divisible_triangular_number(){
-    int triangle=0;
-    int n=1;
-    while(Project::number_divisors(triangle)<500){
-        triangle+=n;
-        n++;
-    }
-    cout<< triangle << endl;
-}
-int Project::number_divisors(int number) {
+int number_divisors(int number) {
     int numberDivisor = 0;
     int root = sqrt(number);
 
@@ -360,6 +353,41 @@ int Project::number_divisors(int number) {
     }
 
     return numberDivisor;
+}
+
+void Project::highly_divisible_triangular_number(){
+    int triangle=0;
+    int n=1;
+    while(number_divisors(triangle)<500){
+        triangle+=n;
+        n++;
+    }
+    cout<< triangle << endl;
+}
+
+int charToInt(char line){
+    if(line == '0')
+        return 0;
+    if (line == '1')
+        return 1;
+    if (line == '2')
+        return 2;
+    if (line == '3')
+        return 3;
+    if (line == '4')
+        return 4;
+    if (line == '5')
+        return 5;
+    if (line == '6')
+        return 6;
+    if (line == '7')
+        return 7;
+    if (line == '8')
+        return 8;
+    if (line == '9')
+        return 9;
+
+    return 0;
 }
 
 void Project::large_sum(){
@@ -400,29 +428,17 @@ void Project::large_sum(){
 
 }
 
-int Project::charToInt(char line){
-    if(line == '0')
-        return 0;
-    if (line == '1')
-        return 1;
-    if (line == '2')
-        return 2;
-    if (line == '3')
-        return 3;
-    if (line == '4')
-        return 4;
-    if (line == '5')
-        return 5;
-    if (line == '6')
-        return 6;
-    if (line == '7')
-        return 7;
-    if (line == '8')
-        return 8;
-    if (line == '9')
-        return 9;
-
-    return 0;
+int collatz_func(long long num){
+    long int terms=1;
+        while (num != 1)
+        {
+            if (num%2 == 0)
+                num = num/2;
+            else if (num%2 == 1)
+                num = 3*num + 1;
+            terms++;
+        }
+    return terms;
 }
 
 void Project::longest_collatz_sequence(){
@@ -439,24 +455,12 @@ void Project::longest_collatz_sequence(){
     cout << num_with_highestTerm << endl;
 }
 
-int Project::collatz_func(long long num){
-    long int terms=1;
-        while (num != 1)
-        {
-            if (num%2 == 0)
-                num = num/2;
-            else if (num%2 == 1)
-                num = 3*num + 1;
-            terms++;
-        }
-    return terms;
-}
-
 #define MAX	200000
 #define LIMIT	1000
 bool composite[MAX + 1];
 vector<int> primes;
 
+void seive(int n);
 void Project::diophantine_reciprocals_a(){
     seive(MAX);
 	for (int N = 1000; N < MAX; N++)
@@ -483,7 +487,7 @@ void Project::diophantine_reciprocals_a(){
 	}
 }
 
-void Project::seive(int n)
+void seive(int n)
 {
 	int	i, j;
 
@@ -557,6 +561,23 @@ void Project::number_letter_counts(){
     cout<<sum_of_all_letters<<endl;
 }
 
+/* Finds largest of 3 and adds to upper num */
+int maxsum (int num1, int num2, int up) {
+    int biggest = num1;
+    if(num2 > biggest)
+        biggest = num2;
+    return biggest + up;
+}
+
+/* Finds largest path */
+int path(int num, int tri[][15]) {
+    for(int i = num-1; i >= 0; i--) {
+        for(int j = 0; j+1 < num && tri[i][j+1] != 0; j++)
+            tri[i-1][j] = maxsum(tri[i][j], tri[i][j+1], tri[i-1][j]);
+    }
+    return tri[0][0];
+}
+
 void Project::maximum_path_sum_I(){
     int tri [15][15] = {
     {75, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -577,36 +598,25 @@ void Project::maximum_path_sum_I(){
     cout << path(15, tri) << endl;
 }
 
-/* Finds largest of 3 and adds to upper num */
-int Project::maxsum (int num1, int num2, int up) {
-    int biggest = num1;
-    if(num2 > biggest)
-        biggest = num2;
-    return biggest + up;
-}
-
-/* Finds largest path */
-int Project::path(int num, int tri[][15]) {
-    for(int i = num-1; i >= 0; i--) {
-        for(int j = 0; j+1 < num && tri[i][j+1] != 0; j++)
-            tri[i-1][j] = maxsum(tri[i][j], tri[i][j+1], tri[i-1][j]);
-    }
-    return tri[0][0];
-}
-
 int day,month,year;
+void setStartDate(int startDay, int startMonth, int startYear);
+bool isLeapYear();
+int daysInMonth();
+void updateDate(int numDays);
+int sundaysOnFirst(int endYear);
+
 void Project::counting_sundays(){
     setStartDate(6, 1, 1901);
     cout << sundaysOnFirst(2000) << endl;
 }
 
-void Project::setStartDate(int startDay, int startMonth, int startYear) {
+void setStartDate(int startDay, int startMonth, int startYear) {
    day = startDay;
    month = startMonth;
    year = startYear;
 }
 
-bool Project::isLeapYear() {
+bool isLeapYear() {
     if(year % 100 == 0) {	//if century
         if(year % 400 == 0)	//if divisible by 400
             return true;
@@ -618,7 +628,7 @@ bool Project::isLeapYear() {
         return false;
 }
 
-int Project::daysInMonth() {
+int daysInMonth() {
     if(month == 2) {
         if(isLeapYear())
             return 29;
@@ -631,7 +641,7 @@ int Project::daysInMonth() {
 }
 
 /* Variable 'numDays' must not be greater than 27 */
-void Project::updateDate(int numDays) {
+void updateDate(int numDays) {
     day += numDays;
     if(day > daysInMonth()) {
         day -= daysInMonth();
@@ -644,7 +654,7 @@ void Project::updateDate(int numDays) {
 }
 
 /* Global variable 'day' must be set to a Sunday */
-int Project::sundaysOnFirst(int endYear) {
+int sundaysOnFirst(int endYear) {
     int sundays = 0;
     for(; year <= endYear; updateDate(7)) {
         if(day == 1)
@@ -653,17 +663,19 @@ int Project::sundaysOnFirst(int endYear) {
     return sundays;
 }
 
-void Project::factorial_digit_sum(){
-string s = "93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000";
-cout << sumDigits(s) << endl;
-}
-
-int Project::sumDigits(string s) {
+int sumDigits(string s) {
     int answer = 0;
     for(unsigned int i = 0; i < s.length(); i++)
         answer += atoi(s.substr(i,1).c_str());
     return answer;
 }
+
+void Project::factorial_digit_sum(){
+string s = "93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000";
+cout << sumDigits(s) << endl;
+}
+
+/*21*/
 
 int getScore(string s) {
     int score = 0;
@@ -700,9 +712,84 @@ void Project::name_scores(){
         }
     }
     namesFile.close();
-    //alphabetize
     sort(names.begin(), names.end());
-    //count up name scores
+    //getting the total score by using the func above
     cout << getTotalScore(names) << endl;
+}
+
+int nthTerm=3;
+float term1=1;
+float term2=1;
+float term3=term1+term2;
+float numDigit1=0;
+float numDigit2=0;
+float numDigit3=0;
+
+void TrickTerm(){
+    term1=term2;
+    term2=term3;
+    numDigit1=numDigit2;
+    numDigit2=numDigit3;
+    if(numDigit1==numDigit2)
+        term3 = term1 + term2;
+    else if(numDigit2 > numDigit1)
+        term3=(term1/10) + term2;
+    while(term3>10){
+        term3=term3/10;
+        numDigit3++;
+    }
+    nthTerm++;
+}
+int numDigits (int n);
+void Project::first_1000_digit_fibonacci(){
+    while(numDigit3+1 < 1000)
+        TrickTerm();
+    cout<<nthTerm<<endl;
+}
+
+int numDigits(int n) {
+    int digits = 0;
+    if(n < 0)
+        n = -n;
+    while(n > 0) {
+        digits++;
+        n /= 10;
+    }
+    return digits;
+}
+
+
+void Project::truncatable_primes(){
+    int firstDig = 0;
+    int lastDig = 0;
+    int num = 0;
+    int total = 0;
+    bool prime;
+    for(int i = 8; i < 999999; i++) {
+        prime = false;
+        lastDig = i % 10;
+        if(lastDig == 2 || lastDig == 3 || lastDig == 5 || lastDig == 7) {
+            for(num = i; num > 0; num /= 10)
+                firstDig = num;
+            if(firstDig == 2 || firstDig == 3 || firstDig == 5 || firstDig == 7) {
+                prime = true;
+                //check left to right
+                for(num = i; num > 0; num %= (int)pow(10, numDigits(num) - 1)) {
+                    if(!Prime_check(num))
+                        prime = false;
+                }
+                if(prime == true) {
+                    //check right to left
+                    for(num = i; num > 0; num /= 10) {
+                        if(!Prime_check(num))
+                            prime = false;
+                    }
+                }
+            }
+        }
+        if(prime)
+            total += i;
+    }
+    cout << total << endl;
 
 }
